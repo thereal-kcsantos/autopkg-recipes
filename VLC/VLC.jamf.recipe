@@ -23,7 +23,7 @@
 		<key>UPDATE_PREDICATE</key>
 		<string>pkg_uploaded == False</string>
 		<key>STOP_PREDICATE</key>
-		<string></string>
+		<string>NOT virus_total_analyzer_summary_result.data.ratio BEGINSWITH '0'</string>
 	</dict>
 	<key>MinimumVersion</key>
 	<string>2.0</string>
@@ -32,6 +32,18 @@
 	<key>Process</key>
 	<array>
 		<dict>
+			<key>Processor</key>
+			<string>io.github.hjuutilainen.VirusTotalAnalyzer/VirusTotalAnalyzer</string>
+		</dict>
+		<dict>
+			<key>Processor</key>
+			<string>StopProcessingIf</string>
+			<key>Arguments</key>
+			<dict>
+				<key>predicate</key>
+				<string>%STOP_PREDICATE%</string>
+			</dict>
+			
 			<key>Processor</key>
 			<string>com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader</string>
 			<key>Arguments</key>
@@ -68,15 +80,17 @@
 				<key>computergroup_name</key>
 				<string>%NAME% - Installed</string>
 			</dict>
+		</dict>
+		<dict>
 			<key>Processor</key>
 			<string>com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader</string>
-				<key>Arguments</key>
-				<dict>
-					<key>computergroup_template</key>
-					<string>SmartGroupTemplate-notInstalled.xml</string>
-					<key>computergroup_name</key>
-					<string>%NAME% - Not Installed</string>
-				</dict>
+			<key>Arguments</key>
+			<dict>
+				<key>computergroup_template</key>
+				<string>SmartGroupTemplate-notInstalled.xml</string>
+				<key>computergroup_name</key>
+				<string>%NAME% - Not Installed</string>
+			</dict>
 		</dict>
 		<dict>
 			<key>Processor</key>
