@@ -25,6 +25,8 @@
 		<key>STOP_PREDICATE</key>
 		<string></string>
 	</dict>
+	<key>MinimumVersion</key>
+	<string>2.0</string>
 	<key>ParentRecipe</key>
 	<string>com.github.autopkg.grahampugh-recipes.jamf.VLC</string>
 	<key>Process</key>
