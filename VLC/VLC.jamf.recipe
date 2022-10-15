@@ -11,15 +11,15 @@
 		<key>APP_BUNDLE_ID</key>
 		<string>org.videolan.vlc</string>
 		<key>CATEGORY</key>
-		<string>VLC-update-smart</string>
+		<string>Software</string>
 		<key>TRIGGER_NAME</key>
-		<string>JamfSmartGroupTemplate.xml</string>
+		<string>installApp-%NAME%</string>
 		<key>SELF_SERVICE_DESCRIPTION</key>
-		<string>VLC</string>
+		<string>VLC is a free and open source cross-platform multimedia player and framework that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols.</string>
 		<key>SELF_SERVICE_ICON</key>
-		<string>Testing</string>
+		<string>%NAME%.png</string>
 		<key>POLICY_CATEGORY</key>
-		<string>Install Latest %NAME%</string>
+		<string>Software</string>
 		<key>UPDATE_PREDICATE</key>
 		<string>pkg_uploaded == False</string>
 		<key>STOP_PREDICATE</key>
