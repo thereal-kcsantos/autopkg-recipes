@@ -28,7 +28,7 @@
 	<key>MinimumVersion</key>
 	<string>2.0</string>
 	<key>ParentRecipe</key>
-	<string>com.github.autopkg.grahampugh-recipes.jamf.VLC</string>
+	<string>com.github.autopkg.pkg.VLC</string>
 	<key>Process</key>
 	<array>
 	<!--
