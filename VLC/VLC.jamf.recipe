@@ -31,6 +31,7 @@
 	<string>com.github.autopkg.grahampugh-recipes.jamf.VLC</string>
 	<key>Process</key>
 	<array>
+	<!--
 		<dict>
 			<key>Processor</key>
 			<string>io.github.hjuutilainen.VirusTotalAnalyzer/VirusTotalAnalyzer</string>
@@ -52,6 +53,7 @@
 				<string>%CATEGORY%</string>
 			</dict>
 		</dict>
+	-->
 		<dict>
 			<key>Processor</key>
 			<string>com.github.grahampugh.jamf-upload.processors/JamfPackageUploader</string>
