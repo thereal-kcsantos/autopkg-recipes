@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <policy>
+    <general>
+      <name>%policy_name%</name>
+      <enabled>true</enabled>
+      <frequency>Ongoing</frequency>
+      <category>
+        <name>%POLICY_CATEGORY%</name>
+      </category>
+      <site>
+        <name>None</name>
+      </site>
+    </general>
+    <scope>
+      <all_computers>false</all_computers>
+      <computer_groups>
+        <computer_group>
+            <name>%group_name%</name>
+        </computer_group>
+      </computer_groups>
+    </scope>
+    <package_configuration>
+      <packages>
+        <size>1</size>
+        <package>
+          <name>%pkg_name%</name>
+          <action>Install</action>
+        </package>
+      </packages>
+    </package_configuration>
+    <scripts>
+      <size>0</size>
+    </scripts>
+    <self_service>
+        <use_for_self_service>true</use_for_self_service>
+        <self_service_display_name>%NAME%</self_service_display_name>
+        <install_button_text>Install %version%</install_button_text>
+        <reinstall_button_text>Reinstall</reinstall_button_text>
+        <self_service_description>%SELF_SERVICE_DESCRIPTION%</self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <self_service_icon>
+          <filename>%SELF_SERVICE_ICON%</filename>
+        </self_service_icon>
+        <self_service_categories>
+          <category>
+            <name>%POLICY_CATEGORY%</name>
+            <display_in>true</display_in>
+            <feature_in>false</feature_in>
+          </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject>%NAME% (%version%) is available for install.</notification_subject>
+        <notification_message/>
+      </self_service>
+    <maintenance>
+        <recon>true</recon>
+        <reset_name>false</reset_name>
+        <install_all_cached_packages>false</install_all_cached_packages>
+        <heal>false</heal>
+        <prebindings>false</prebindings>
+        <permissions>false</permissions>
+        <byhost>false</byhost>
+        <system_cache>false</system_cache>
+        <user_cache>false</user_cache>
+        <verify>false</verify>
+      </maintenance>
+      <files_processes>
+        <search_by_path/>
+        <delete_file>false</delete_file>
+        <locate_file/>
+        <update_locate_database>false</update_locate_database>
+        <spotlight_search/>
+        <search_for_process/>
+        <kill_process>false</kill_process>
+        <run_command>jamf policy -trigger %INSTALL_POLICY_TRIGGER%</run_command>
+      </files_processes>
+      <user_interaction>
+        <message_start>%NAME% is installing on your Mac.</message_start>
+        <allow_users_to_defer>false</allow_users_to_defer>
+        <allow_deferral_until_utc/>
+        <allow_deferral_minutes>0</allow_deferral_minutes>
+        <message_finish>%NAME% install complete. You can find it in your Applications folder.</message_finish>
+      </user_interaction>
+  </policy>

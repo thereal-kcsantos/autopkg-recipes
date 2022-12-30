@@ -1,0 +1,65 @@
+Description:
+  This recipe downloads the latest version of iTerm2 and then uploads the pkg to your Jamf Pro 
+  Server/Distribution Point using variables set in the environment.
+  The hjuutilainen repo is required.
+Identifier: com.github.the-real-kc-santos.jamf.iTerm2
+ParentRecipe: io.github.hjuutilainen.pkg.iTerm2
+MinimumVersion: '2.3'
+
+Input:
+  NAME: iTerm2
+  CATEGORY: Utility
+  POLICY_CATEGORY: Software
+  INSTALL_POLICY_TRIGGER: installiTerm2
+  SELF_SERVICE_ICON: "%NAME%.png"
+  SELF_SERVICE_DESCRIPTION: |
+    iTerm2 is a replacement for Terminal and the successor to iTerm.
+
+    Version: %version%
+
+
+Process:
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
+  Arguments:
+    category_name: "%CATEGORY%"
+    jcds_mode: "True"
+
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
+  Arguments:
+    pkg_category: "%CATEGORY%"
+
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: "pkg_uploaded == False"
+
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+      computergroup_name: "App - %NAME% - Not Installed"
+      computergroup_template: "smartGroupTemplate-selfService-notInstalled.xml"
+      replace_group: "True"
+
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfComputerGroupUploader
+  Arguments:
+      computergroup_name: "App - %NAME% - Installed"
+      computergroup_template: "smartGroupTemplate-selfService-installed.xml"
+      replace_group: "True"
+
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: "App Install - %NAME%"
+    policy_template: "policyTemplate-appInstall-allComputersUsers.xml"
+    policy_trigger: "%INSTALL_POLICY_TRIGGER%"
+    replace_policy: "True"
+
+
+- Processor: com.github.grahampugh.jamf-upload.processors/JamfPolicyUploader
+  Arguments:
+    policy_name: "Self Service - %NAME% - Install"
+    policy_template: "policyTemplate-selfService-install.xml"
+    group_name: "App - %NAME% - Not Installed"
+    replace_policy: "True"
