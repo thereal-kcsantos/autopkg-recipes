@@ -11,7 +11,7 @@ Input:
   CATEGORY: Utility
   POLICY_CATEGORY: Software
   INSTALL_POLICY_TRIGGER: installiTerm2
-  SELF_SERVICE_ICON: "%NAME%.png"
+  SELF_SERVICE_ICON: iTerm2.png
   SELF_SERVICE_DESCRIPTION: |
     iTerm2 is a replacement for Terminal and the successor to iTerm.
 
