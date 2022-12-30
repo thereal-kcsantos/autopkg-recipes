@@ -62,4 +62,5 @@ Process:
     policy_name: "Self Service - %NAME% - Install"
     policy_template: "policyTemplate-selfService-install.xml"
     group_name: "App - %NAME% - Not Installed"
+    icon: "%SELF_SERVICE_ICON%"
     replace_policy: "True"
