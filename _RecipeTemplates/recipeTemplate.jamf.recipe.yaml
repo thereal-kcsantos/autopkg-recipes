@@ -41,12 +41,12 @@ Process:
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfCategoryUploader
   Arguments:
     category_name: "%CATEGORY%"
-    jcds_mode: "True"
 
 
 - Processor: com.github.grahampugh.jamf-upload.processors/JamfPackageUploader
   Arguments:
     pkg_category: "%CATEGORY%"
+    jcds_mode: "True"
 
 
 - Processor: StopProcessingIf
@@ -58,6 +58,7 @@ Process:
   Arguments:
       computergroup_name: "App - %NAME% - Not Installed"
       computergroup_template: "smartGroupTemplate-selfService-notInstalled.xml"
+      app_name: "%JSS_INVENTORY_NAME%"
       replace_group: "True"
 
 
@@ -65,6 +66,7 @@ Process:
   Arguments:
       computergroup_name: "App - %NAME% - Installed"
       computergroup_template: "smartGroupTemplate-selfService-installed.xml"
+      app_name: "%JSS_INVENTORY_NAME%"
       replace_group: "True"
 
 
