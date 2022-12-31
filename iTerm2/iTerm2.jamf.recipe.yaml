@@ -39,7 +39,7 @@ Process:
   Arguments:
       computergroup_name: "App - %NAME% - Not Installed"
       computergroup_template: "smartGroupTemplate-selfService-notInstalled.xml"
-      app_name: "%JSS_INVENTORY_NAME%"
+      app_name: "iTerm.app"
       replace_group: "True"
 
 
@@ -47,7 +47,7 @@ Process:
   Arguments:
       computergroup_name: "App - %NAME% - Installed"
       computergroup_template: "smartGroupTemplate-selfService-installed.xml"
-      app_name: "%JSS_INVENTORY_NAME%"
+      app_name: "iTerm.app"
       replace_group: "True"
 
 
