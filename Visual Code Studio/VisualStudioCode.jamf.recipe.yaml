@@ -1,22 +1,3 @@
-# Use this as a template to create new recipes.
-# Fill out/replace the following Variables:
-#   - Description: Add a descritpion of what this recipe will accomplish
-#   - Identifier: create a unique identifier to this Recipe
-#   - Parent Recipe: Mention the parent -pkg recipe for this recipe. Note that repo of the Parent Recipe
-#                    must be trusted and added to the AutoPkg server.
-#   - Input:
-#       NAME: Input the application name (ie: iTerm2 / Google Chrome / 1Password)
-#       CATEGORY: Input the category this PKG will fall under.
-#       POLICY_CATEGORY: Input the policy category that is associated with this recipe. (ie: Software)
-#       INSTALL_POLICY_TRIGGER: Define the Custom Trigger that will be used to install the associated PKG.
-#                               (example: installChrome)
-#       SELF_SERVICE_ICON: Input the file name of the icon to be used for Self Service (File must be included
-#                          with in the same folder as recipe)
-#       SELF_SERVICE_DESCRIPTION: Underneath the |, input the description of the App that will be shown
-#                                 Self Service. Do not change the 'Version' variable.
-#
-#### Delete this line and everything above.
-
 Description:
   This recipe downloads the latest version of Visual Studio Code and then uploads the pkg to your Jamf Pro 
   Server/Distribution Point using variables set in the environment.
